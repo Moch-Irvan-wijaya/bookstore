@@ -1,0 +1,130 @@
+/* Tema BookStore: warna diambil dari punggung buku (pine, oxblood, cobalt, teal, mustard) */
+:root {
+  --pine: #14342b; --pine-2: #24503f; --paper: #f1f4f0; --line: #d9e0d8;
+  --mustard: #e0a82e; --ink: #1d2623;
+  --bs-primary: #14342b; --bs-primary-rgb: 20, 52, 43;
+  --bs-body-bg: #f1f4f0; --bs-body-color: #1d2623; --bs-border-color: #d9e0d8;
+  --bs-link-color: #14342b;
+}
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--paper); color: var(--ink); }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.01em; color: var(--pine); }
+:focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
+
+/* Tombol */
+.btn { border-radius: 8px; font-weight: 600; }
+.btn-primary { --bs-btn-bg: var(--pine); --bs-btn-border-color: var(--pine); --bs-btn-hover-bg: var(--pine-2); --bs-btn-hover-border-color: var(--pine-2); --bs-btn-active-bg: var(--pine-2); --bs-btn-active-border-color: var(--pine-2); }
+.btn-success { --bs-btn-color: var(--pine); --bs-btn-bg: var(--mustard); --bs-btn-border-color: var(--mustard); --bs-btn-hover-color: var(--pine); --bs-btn-hover-bg: #eab94a; --bs-btn-hover-border-color: #eab94a; --bs-btn-active-color: var(--pine); --bs-btn-active-bg: #eab94a; --bs-btn-disabled-color: #6b756f; --bs-btn-disabled-bg: #e3e8e2; --bs-btn-disabled-border-color: #e3e8e2; }
+
+/* Kartu, tabel, form: garis tipis, tanpa bayangan */
+.card, .bg-white.rounded { background: #fff; border: 1px solid var(--line); border-radius: 10px !important; box-shadow: none !important; }
+.table-responsive { background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+.bg-white .table-responsive { border: 0; }
+.table { margin: 0; --bs-table-striped-bg: #f7f9f6; }
+.table thead th { background: var(--pine); color: #fff; border: 0; font-weight: 600; white-space: nowrap; }
+.table > :not(caption) > * > * { padding: 0.8rem 1rem; }
+.form-control, .form-select { border-radius: 8px; border-color: var(--line); padding: 0.55rem 0.8rem; }
+.form-control:focus, .form-select:focus { border-color: var(--pine); box-shadow: 0 0 0 0.2rem rgba(224, 168, 46, 0.35); }
+.badge { border-radius: 6px; font-weight: 600; }
+.alert { border-radius: 8px; border: 0; }
+
+/* Navbar dan footer */
+.site-nav, .site-footer, .admin-side { background: var(--pine); }
+.site-nav .brand { color: #fff; font-weight: 800; font-size: 1.3rem; text-decoration: none; letter-spacing: -0.02em; }
+.site-nav .brand span { color: var(--mustard); }
+.nav-pill { color: #d4dfd9; text-decoration: none; padding: 0.35rem 0.75rem; border-radius: 6px; }
+.nav-pill:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.nav-pill.active { background: var(--mustard); color: var(--pine); font-weight: 600; }
+.site-footer { color: #c3d3ca; margin-top: 3rem; padding: 1.5rem 0; font-size: 0.9rem; }
+
+/* Sidebar admin */
+.admin-side { position: sticky; top: 0; min-height: 100vh; }
+.admin-side .nav-link { color: #d4dfd9; border-radius: 6px; margin-bottom: 2px; }
+.admin-side .nav-link:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.admin-side .nav-link.active { background: var(--mustard); color: var(--pine); font-weight: 600; }
+
+/* Hero: rak buku dari punggung buku */
+.hero { background: var(--pine); color: #fff; border-radius: 14px; padding: 2.5rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: end; overflow: hidden; margin-bottom: 2rem; }
+.hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; }
+.hero p { color: #c3d3ca; max-width: 46ch; }
+.shelf { display: flex; align-items: flex-end; gap: 4px; border-bottom: 8px solid #0b2019; min-height: 200px; }
+.shelf span { position: relative; border-radius: 3px 3px 0 0; transform-origin: bottom; animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.shelf span::after { content: ''; position: absolute; left: 0; right: 0; top: 18%; height: 6px; background: rgba(255, 255, 255, 0.35); }
+@keyframes rise { from { transform: scaleY(0.15); opacity: 0.4; } to { transform: scaleY(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .shelf span { animation: none; } }
+@media (max-width: 768px) { .hero { grid-template-columns: 1fr; padding: 1.5rem; } .shelf { min-height: 140px; } }
+
+/* Kartu buku */
+.book-card { border-top: 5px solid var(--spine, #14342b) !important; }
+.book-card:hover { border-color: var(--pine) !important; }
+.book-card .cover { height: 250px; width: 100%; object-fit: cover; display: block; }
+.cover-ph { height: 250px; background: var(--spine); color: #fff; display: flex; align-items: flex-end; padding: 1rem; font-family: Georgia, 'Times New Roman', serif; font-size: 1.25rem; line-height: 1.2; font-weight: 700; }
+.book-title { font-family: Georgia, 'Times New Roman', serif; font-size: 1.05rem; line-height: 1.25; }
+.price { font-weight: 700; color: var(--pine); }
+
+/* Ikon di navbar */
+.nav-pill svg { vertical-align: -0.2em; }
+
+/* Halaman profil */
+.profile-avatar { width: 84px; height: 84px; border-radius: 50%; background: var(--pine); color: #fff; font-size: 2rem; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+
+
+
+/* ===== Tambahan: kartu buku yang bisa diklik ===== */
+.book-link { display: block; height: 100%; color: inherit; text-decoration: none; }
+.book-link .book-card { transition: transform 0.15s ease, border-color 0.15s ease; }
+.book-link:hover .book-card { transform: translateY(-4px); border-color: var(--pine) !important; }
+.book-link:focus-visible { outline-offset: 4px; border-radius: 10px; }
+@media (prefers-reduced-motion: reduce) { .book-link .book-card { transition: none; } .book-link:hover .book-card { transform: none; } }
+
+/* ===== Tambahan: halaman detail buku ===== */
+.detail-cover { width: 100%; max-height: 460px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
+.detail-cover-ph { min-height: 360px; background: var(--spine, #14342b); color: #fff; border-radius: 10px; display: flex; align-items: flex-end; padding: 1.25rem; font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; line-height: 1.2; font-weight: 700; }
+.detail-title { font-family: Georgia, 'Times New Roman', serif; }
+.detail-price { font-size: 1.8rem; font-weight: 800; color: var(--pine); }
+.detail-description { white-space: pre-line; line-height: 1.7; }
+.author-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+
+/* ===== Tambahan: halaman Tentang Toko dan Kontak ===== */
+.about-hero { background: var(--pine); color: #fff; border-radius: 14px; padding: 3rem 2.5rem; margin-bottom: 2rem; position: relative; overflow: hidden; }
+.about-hero::after { content: ''; position: absolute; right: -40px; top: -40px; width: 220px; height: 220px; border-radius: 50%; background: rgba(224, 168, 46, 0.18); }
+.about-hero h1 { color: #fff; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.15; max-width: 22ch; position: relative; z-index: 1; }
+.about-hero > * { position: relative; z-index: 1; }
+.about-eyebrow { color: var(--mustard); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem; }
+.about-lead { color: #c3d3ca; max-width: 56ch; margin: 1rem 0 1.5rem; }
+.stat-card { background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--mustard); border-radius: 10px; padding: 1.25rem; text-align: center; }
+.stat-number { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: var(--pine); line-height: 1; }
+.stat-label { color: #5b6862; font-size: 0.9rem; margin-top: 0.4rem; }
+.genre-chip { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 1rem; font-weight: 600; color: var(--pine); }
+.feature-card, .status-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; height: 100%; }
+.feature-number { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 50%; background: var(--mustard); color: var(--pine); font-weight: 800; margin-bottom: 0.75rem; }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 1.5rem; border-left: 3px solid var(--line); counter-reset: step; }
+.timeline li { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; counter-increment: step; }
+.timeline li::before { content: counter(step); position: absolute; left: -2.55rem; top: 0.9rem; width: 2rem; height: 2rem; border-radius: 50%; background: var(--pine); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 3px solid var(--paper); }
+.about-cta { background: #fff; border: 1px solid var(--line); border-left: 6px solid var(--mustard); border-radius: 10px; padding: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+@media (max-width: 576px) { .about-hero { padding: 2rem 1.5rem; } }
+
+/* ===== Tambahan: halaman checkout ===== */
+.step-number { display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; border-radius: 50%; background: var(--pine); color: #fff; font-size: 0.9rem; margin-right: 0.4rem; }
+.pay-option { display: flex; gap: 0.75rem; align-items: flex-start; border: 2px solid var(--line); border-radius: 10px; padding: 0.9rem 1rem; cursor: pointer; height: 100%; background: #fff; }
+.pay-option:hover { border-color: var(--pine-2); }
+.pay-option.selected { border-color: var(--pine); background: #f4f8f5; }
+.pay-option input { margin-top: 0.3rem; accent-color: var(--pine); }
+.pay-instructions { background: #f7f9f6; border: 1px dashed var(--line); border-radius: 10px; padding: 1rem 1.25rem; }
+.qris-image { max-width: 240px; width: 100%; border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: 0.5rem; }
+.account-box { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem 1rem; display: grid; gap: 0.25rem; }
+.proof-preview { max-width: 100%; max-height: 320px; border-radius: 10px; border: 1px solid var(--line); display: block; }
+.proof-thumbnail { max-width: 160px; max-height: 160px; border-radius: 8px; border: 1px solid var(--line); object-fit: cover; }
+.summary-box { position: sticky; top: 1rem; }
+
+/* ===== Tambahan: tanda ceklis pesanan berhasil ===== */
+.success-check { width: 88px; height: 88px; }
+.success-check-circle { stroke: #1f8a4c; stroke-width: 3; stroke-dasharray: 151; stroke-dashoffset: 151; animation: check-draw 0.6s ease forwards; }
+.success-check-mark { stroke: #1f8a4c; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 40; stroke-dashoffset: 40; animation: check-draw 0.4s ease 0.55s forwards; }
+@keyframes check-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .success-check-circle, .success-check-mark { animation: none; stroke-dashoffset: 0; } }
+
+
+/* ===== Tambahan: foto profil ===== */
+.profile-avatar-image { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); }
+.nav-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; vertical-align: -0.4em; }
+.admin-side-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.4); flex-shrink: 0; }
